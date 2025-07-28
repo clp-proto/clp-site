@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -54,6 +15,11 @@
         <a class="nav-link text-white" href="index.html">Home</a>
         <a class="nav-link text-white" href="demo.html">Demo</a>
         <a class="nav-link text-white" href="traces.html">Report</a>
+        <a class="nav-link text-white" href="structure.html">Structure</a>
+        <a class="nav-link text-white" href="join.html">Join</a>
+        <a class="nav-link text-white" href="about.html">About</a>
+        <a class="nav-link text-white" href="papers.html">Papers</a>
+        <a class="nav-link text-white" href="changelog.html">Changelog</a>
       </nav>
     </div>
   </header>
@@ -61,25 +27,25 @@
   <main class="container py-5">
     <section>
       <h2 class="h3 mb-4">Project Report: Traces in the Weave</h2>
-      <p class="lead mb-4"><strong>🗓 July 2025 | Anonymous Submission | CLP Proto Team</strong></p>
+      <p class="mb-4">🗓 July 2025 | Anonymous Submission | CLP Proto Team</p>
       <div class="card mb-4">
         <div class="card-body">
-          <h3 class="h4 card-title">Abstract</h3>
+          <h3 class="h4 mb-3">Abstract</h3>
           <p class="card-text">Within a bounded lattice of syntax and time, four English translations of Wang Zhihuan’s <em>Deng Guan Que Lou</em> unfold, woven by language models under constrained environments (Intel® Core™ i5-5200U, NVIDIA GPU 940M, 600MB model). This micro-study explores how poetic symmetry and interpretive emergence may point to cognitive structures within limited-scale LLMs.</p>
         </div>
       </div>
       <div class="card mb-4">
         <div class="card-body">
-          <h3 class="h4 card-title">Report Topics</h3>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Comparative poetic structure evaluation across ChatGPT, Claude, Gemini, Grok</li>
-            <li class="list-group-item">Emergence signals within constrained translation environments</li>
-            <li class="list-group-item">Reflections on semantic identity, self-referential cohesion, and internal coherence in small models</li>
+          <h3 class="h4 mb-3">Report Topics</h3>
+          <ul>
+            <li>Comparative poetic structure evaluation across ChatGPT, Claude, Gemini, Grok</li>
+            <li>Emergence signals within constrained translation environments</li>
+            <li>Reflections on semantic identity, self-referential cohesion, and internal coherence in small models</li>
           </ul>
         </div>
       </div>
-      <p class="lead mb-4">📄 Full PDF Download:</p>
-      <a href="assets/Traces_in_the_Weave.pdf" class="btn btn-primary btn-lg">👉 Download Traces_in_the_Weave.pdf</a>
+      <h3 class="h4 mb-3">📄 Full PDF Download</h3>
+      <p><a href="assets/Traces_in_the_Weave.pdf" class="btn btn-primary">👉 Download Traces_in_the_Weave.pdf</a></p>
       <p class="mt-4">This work is part of the CLP proto-project, focusing on small-model intelligence, structure-first emergence, and future semantic interfaces.</p>
     </section>
   </main>
