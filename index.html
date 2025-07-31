@@ -89,7 +89,8 @@
       padding: 1.5rem; /* Reduced padding */
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .radar-wrapper {
@@ -98,6 +99,7 @@
       border-radius: 10px;
       overflow: hidden;
       max-height: 400px; /* Constrain height */
+      flex: 1;
     }
 
     .radar-wrapper canvas {
@@ -113,9 +115,10 @@
 
     .toggle-btn-group {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-right: 1rem;
+      width: 200px; /* Fixed width for button column */
     }
 
     .toggle-btn {
@@ -127,6 +130,7 @@
       cursor: pointer;
       transition: all 0.3s;
       position: relative;
+      text-align: left;
     }
 
     .toggle-btn.active, .toggle-btn:hover {
@@ -138,15 +142,16 @@
     .toggle-btn:hover::after {
       content: attr(data-tooltip);
       position: absolute;
-      top: -2rem;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
       background: #333;
       color: #fff;
       padding: 0.3rem 0.6rem;
       border-radius: 4px;
       font-size: 0.9rem;
       white-space: nowrap;
+      margin-left: 0.5rem;
     }
 
     .control-btn {
@@ -157,7 +162,6 @@
       color: #333;
       cursor: pointer;
       transition: all 0.3s;
-      margin-left: 1rem;
     }
 
     .control-btn:hover {
@@ -225,15 +229,15 @@
       <h2>Structure-Driven Intelligence</h2>
       <p class="tagline">🧠 "When emergence appears, size doesn’t decide."</p>
       <div class="radar-container" id="radarContainer">
-        <div class="radar-wrapper">
-          <canvas id="radarChart" aria-label="Radar chart comparing language model performance metrics"></canvas>
-        </div>
         <div class="toggle-btn-group">
           <button class="toggle-btn active" data-dataset="all" data-tooltip="Show all models" aria-label="Show all models">All Models</button>
           <button class="toggle-btn" data-dataset="small-original" data-tooltip="Show small model (original) with structured" aria-label="Show small model (original) with structured">Small Model (Original)</button>
           <button class="toggle-btn" data-dataset="small-structured" data-tooltip="Show small model (structured)" aria-label="Show small model (structured)">Small Model (Structured)</button>
           <button class="toggle-btn" data-dataset="large-avg" data-tooltip="Show mainstream large models average with structured" aria-label="Show mainstream large models average with structured">Large Models (Avg)</button>
           <button class="control-btn" id="toggleAnimation" aria-label="Pause animation">Pause</button>
+        </div>
+        <div class="radar-wrapper">
+          <canvas id="radarChart" aria-label="Radar chart comparing language model performance metrics"></canvas>
         </div>
       </div>
       <div class="highlight-text">
