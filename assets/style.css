@@ -40,6 +40,135 @@ header {
   background-color: #3b82f6;
 }
 
+
+
+    .hero-section {
+      background: #ffffff;
+      padding: 3rem 1rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+    .hero-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: #1a1a1a;
+    }
+    .tagline {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+    .radar-container {
+      width: 100%;
+      max-width: 75vw;
+      margin: 2rem auto;
+      background: #fafafa;
+      padding: 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .radar-wrapper {
+      position: relative;
+      padding: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .radar-wrapper canvas {
+      transition: transform 0.5s ease;
+      width: 100% !important;
+      height: auto !important;
+    }
+    .radar-wrapper.zoomed canvas {
+      transform: scale(1.05);
+    }
+    .toggle-btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .toggle-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #ffffff;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .toggle-btn.active, .toggle-btn:hover {
+      background: #333;
+      color: #fff;
+      border-color: #333;
+    }
+    .toggle-btn:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .control-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #ffffff;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-left: 1rem;
+    }
+    .control-btn:hover {
+      background: #333;
+      color: #fff;
+      border-color: #333;
+    }
+    .highlight-text {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #333;
+      line-height: 1.8;
+    }
+    .highlight-text strong {
+      color: #1a1a1a;
+    }
+    .highlight-text .note {
+      font-size: 1rem;
+      color: #555;
+      display: block;
+      margin-top: 0.5rem;
+    }
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .btn-primary {
+      background-color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem 1.5rem;
+    }
+    .btn-primary:hover {
+      background-color: #1a1a1a;
+    }
 footer {
   font-size: 0.9rem;
 }
