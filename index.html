@@ -87,16 +87,17 @@
       align-items: center;
     }
 
-    .tagline .first-line {
-      width: fit-content;
-    }
-
-    .tagline .second-line {
-      display: block;
-      text-align: right;
-      width: fit-content;
-      max-width: 100%;
-    }
+.tagline .first-line,
+.tagline .second-line {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
 
     .bar-container {
       width: 100%;
@@ -198,10 +199,12 @@
   <main class="container py-5">
     <section class="hero-section">
       <h2>Structure-Driven Intelligence</h2>
-      <p class="tagline">
-        <span class="first-line">Emergence rewrites the rules</span>
-        <span class="second-line">— even a 600MB model can outperform GPT.</span>
-      </p>
+      <div >
+        <p class="tagline">
+          <span class="first-line">Emergence rewrites the rules
+          <span class="second-line">— even a 600MB model can outperform GPT.</span></span>
+        </p>
+      </div>
       <div class="bar-container" id="barContainer">
         <div class="bar-wrapper">
           <canvas id="barChart" aria-label="Bar chart comparing language model performance metrics"></canvas>
