@@ -217,7 +217,7 @@
         scales: {
           y: {
             min: 1.0,
-            max: 2.5,
+            max: 3.0,
             ticks: { stepSize: 0.5, font: { size: 12 } }
           },
           x: {
@@ -228,7 +228,7 @@
           legend: { position: 'top', labels: { font: { size: 12 }, boxWidth: 15 } },
           datalabels: {
             anchor: 'end',
-            align: 'bottom',
+            align: 'top',
             color: function(context) {
               return context.dataset.label === 'Small Model (Structured)' ? '#ff0000' : 'transparent';
             },
