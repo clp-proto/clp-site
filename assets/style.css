@@ -1,4 +1,3 @@
-/* style.css */
 html {
   font-size: 16px;
 }
@@ -16,6 +15,7 @@ body {
 
 header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: static; /* Ensure header doesn't overlap content */
 }
 
 .navbar-nav .nav-link {
@@ -91,7 +91,7 @@ header {
   color: #333;
   display: block;
   max-width: 90%;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem; /* Increased for extra clearance */
 }
 
 .tagline .first-line,
@@ -108,32 +108,36 @@ header {
 
 .chart-section {
   background: #ffffff;
-  padding: clamp(1rem, 5vw, 2rem) 1rem;
+  padding: clamp(0.5rem, 3vw, 1rem) 1rem; /* Reduced top padding */
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   margin-bottom: 2rem;
+  margin-top: 2rem; /* Ensure separation from hero-section */
   clear: both;
 }
 
 .bar-container {
   width: 100%;
   max-width: 90vw;
-  margin: 1rem auto;
-  background: #fafafa;
-  padding: 1rem;
+  margin: 0 auto; /* Simplified margin */
+  background: transparent; /* Remove background to avoid white bar */
+  padding: 0.5rem 1rem 1rem 1rem; /* Reduced top padding */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: none; /* Remove shadow to reduce visual clutter */
 }
 
 .bar-wrapper {
   position: relative;
-  padding: 1rem;
+  padding: 0; /* Remove padding to align chart */
   border-radius: 10px;
-  overflow: hidden;
+  overflow: visible; /* Allow chart elements to render fully */
+  z-index: 1; /* Ensure chart is above other elements */
 }
 
 .bar-wrapper canvas {
+  display: block; /* Ensure canvas fills container */
   width: 100% !important;
+  min-height: 200px; /* Minimum height for visibility */
   height: auto !important;
   transition: transform 0.5s ease;
 }
@@ -281,5 +285,8 @@ footer {
   }
   .metric-table {
     font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  }
+  .bar-wrapper canvas {
+    min-height: 150px; /* Smaller min-height for mobile */
   }
 }
